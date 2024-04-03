@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Recommendation System</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-color:rgb(109, 207, 175);
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive; 
+            font-size: 36px;
+        }
+        .heading{
+            margin-bottom: 40px;
+        }
+        ul{
+            list-style-type: none;
+        }
+        button{
+            background-color:cadetblue;
+            height:25px;
+            margin: 20px;
+            border-radius:5px;
+        }
+        #ingredients{
+            width:50%;
+            height:30px;
+            border-radius:5px;
+        }
+        img{
+            max-width:300px; 
+            margin-right: 10px; 
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        a:hover {
+            color: #00f; /* New text color (blue in this case) */
+        }
+        .recipe-container {
+            display: flex;
+            align-items: flex-start;
+            width: 900px; /* Adjust the width as needed */
+            margin-bottom: 30px; 
+        }
+        .recipe-container-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            left: 100px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="heading"><h1>The Tasty Delights</h1>
+    </div>
+    <form action="{{ url_for('recommend')}}"method="post">
+        <label for="ingredients"><h4>Write the ingredients you want to serach for here!</h4></label>
+         <div class="input-text">
+            <input type="text" id="ingredients" name="ingredients">
+         </div>
+        
+        <div class="form-actions">
+            <button type="submit">Get recommendations</button>
+        </div>
+    </form>
+    <h2>Search Results</h2>
+<div>
+    {% for rec in recipe_list %}
+    <div>
+        <img src="{{ rec['image-url'] }}" alt="{{ rec['RecipeName'] }}">
+        <a href="{{ rec['URL'] }}"><h3>{{ rec['RecipeName'] }}</h3></a>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

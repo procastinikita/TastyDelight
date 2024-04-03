@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+<h2>Search Results</h2>
+<div>
+    {% for rec in recipe_list %}
+    <div>
+        <img src="{{ rec['image-url'] }}" alt="{{ rec['RecipeName'] }}">
+        <a href="{{ rec['URL'] }}"><h3>{{ rec['RecipeName'] }}</h3></a>
+    </div>
+    {% endfor %}
+</div>

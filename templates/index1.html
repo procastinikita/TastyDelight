@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Libre+Baskerville&display=swap"
+        rel="stylesheet" />
+
+    <Style>body {
+  font-family: "Montserrat";
+  text-align: center;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Caveat";
+  font-family: "Libre Baskerville", serif;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+/* h4{
+   
+   padding-top:250px;
+}
+h2{
+    background-color: beige;
+     margin-top: 300px; 
+} */
+/* .for{
+    padding:20px;
+} */
+.row {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGNDrHqEXdW0Xz03Oz90tn4YDLchYHiGgsK0xUF1jigft4KaC1zcaopNUJDd-peeyzj1E&usqp=CAU");
+}
+
+.container-fluid {
+  padding: 7% 15%;
+}
+
+.coloured-section {
+  background-color: #ff4c68;
+  color: #fff;
+}
+
+.white-section {
+  background-color: #fff;
+}
+
+.big-heading {
+  font-family: "Montserrat-Black";
+  font-size: 3.5rem;
+  line-height: 1.5;
+  font-weight: bolder;
+}
+
+.navbar {
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat-Light";
+}
+
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+#title .container-fluid {
+  padding: 3% 15% 7%;
+  text-align: left;
+}
+
+.title-image {
+  width: 20%;
+  transform: rotate(25deg);
+  position: absolute;
+  right: 30%;
+}
+
+#features {
+  padding: 7% 15%;
+  position: relative;
+}
+
+.feature-text {
+  font-weight: bold;
+}
+
+.feature-box {
+  padding: 5%;
+}
+
+.icon {
+  color: #ef8172;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: #ff4c68;
+}
+
+#testimonials {
+  text-align: center;
+  background-color: #ef8172;
+}
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+.testimonial-text {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+#press {
+  background-color: #ef8172;
+  padding: 3%;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+#pricing {
+  padding: 100px;
+}
+
+.price-text {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.pricing-column {
+  padding: 3% 2%;
+}
+
+.section-heading {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1028px) {
+  #title {
+    text-align: center;
+  }
+
+  .title-image {
+    position: static;
+    transform: rotate(0);
+    width: 40%;
+  }
+}
+
+#cta {
+  text-align: center;
+}
+
+#footer {
+  text-align: center;
+}
+
+.social-icon {
+  margin: 20px 10px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.navbar {
+  background-color: #5f1350;
+  position: relative;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-nav .nav-item {
+  padding: 0 18px;
+ 
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat-Light";
+  color: white;
+}
+
+.recommendation-button {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.form-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.Results {
+  padding-top: 50px;
+  border: 2px;
+}
+
+#second-section {
+  background-color:gray;
+  padding-bottom:80px;
+}
+.col-lg-4 {
+  /* display: flex;
+          align-items: center; */
+  margin-bottom: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  background-color: #f8f9fa;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #007bff;
+}
+
+.card-text {
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary hover {
+  background-color: #0056b3;
+}
+
+/*.recipes-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 80px;
+  /* justify-content: space-between;*/
+ /* margin-top: 100px;
+  margin-bottom: 100px;
+  width: 1500px;
+} */
+.recipes-card {
+  display: flex;
+  justify-content: center;        /* Center the cards horizontally */
+  flex-wrap: wrap; 
+  margin-top:60px;                   /* Allow the cards to wrap when the screen size is reduced */
+}
+
+.recipes-card .cards {
+  flex: 0 0 calc(33.33% - 40px);                     /* Set dynamic width for the cards to fit three per row with margins */
+  margin: 20px;                        /* Add margin between cards */
+  box-sizing: border-box;                /* Include padding and border in the element's total width and height */
+}
+
+.recipes-card .card {
+  width: 100%;                             /* Ensure card takes full width inside its container */
+}
+
+.recipes-card .card img {
+  width: 100%;                           /* Make images inside the card responsive */
+}
+
+.recipes-card .card-title {
+  font-size: 1.5rem;                          /* Adjust font size for recipe titles */
+}
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .recipes-card .cards {
+    flex-basis: calc(50% - 40px);                       / * Set width for two cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .recipes-card .cards {
+    flex-basis: calc(100% - 40px);                             /* Set width for one card per row on smaller screens */
+  }
+}
+
+.cards {
+  margin-right: 80px;
+}
+
+footer {
+  background-color: purple;
+  /* Background color */
+  color: #fff;
+  /* Text color */
+  padding: 20px;
+  text-align: center;
+}
+
+/* Styling for links in the footer */
+footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Change link color on hover */
+footer a:hover {
+  color: #00f;
+}
+
+.search-input {
+  margin: 20px;
+}
+
+#info {
+  padding: 2rem;
+  margin: auto;
+  background-color: #7b4475;
+  color: #333;
+  font-weight: bolder;
+  padding: 70px;
+}
+#foodie{
+  align-content:left baseline;
+   padding: 20px;
+  margin-bottom: 20px;
+}
+
+.intro{
+  font-size:25px;
+}
+
+.above-result{
+  margin-top:60px;
+}
+
+</Style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <section class="upper-section" id="first-section">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">The Tasty Delights</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#first-section">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#second-section">Recipes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#third-section">About</a>
+                        </li>
+                        <!-- Add more navigation items as needed -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="info"> 
+            <img id ="foodie" src="{{ url_for('static',filename='salad.png') }}" alt="foodie">
+            <h2 class="intro">you tired of endlessly searching for the perfect recipe? Look no further!
+            Tasty Delight is here to make your culinary journey a breeze.
+            Our cutting-edge recipe recommender system uses advanced algorithms to match your
+            tastes and preferences with delectable dishes from around the world.</h2> 
+        </div>
+    </section>
+
+
+    <section class="Results" id="second-section">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form action="{{ url_for('recommend') }}" method="post" class="search-form">
+                        <div class="form-group">
+                            <label for="ingredients">
+                            </label>
+                            <input type="text" id="ingredients" name="ingredients" class="form-control search-input"
+                                placeholder="E.g. pasta, tomatoes" />
+                        </div>
+                        <div class="recommendation-button">
+                            <button type="submit" class="btn btn-primary search-button">
+                                Get Recommendations
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="recipes-card">
+                {% for rec in recipe_list %}
+
+                <div class="col-lg-2 cards">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ rec['image-url'] }}" class="card-img-top" alt="{{ rec['RecipeName'] }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ rec['RecipeName'] }}</h5>
+                            <a href="{{ rec['URL'] }}" class="btn btn-primary">Show more</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+    </section>
+
+
+    <section class="About-us" id="third-section">
+
+        <footer>
+            <div>
+                <p>Contact Us: <a href="contact@example.com">example@gmail.com</a></p>
+                <p>Follow Us: <a href="https://twitter.com/example" target="_blank">Twitter</a> | <a
+                        href="https://facebook.com/example" target="_blank">Facebook</a></p>
+            </div>
+
+            <div>
+                <p>About Us: <a href="/about-us.html">Learn More</a></p>
+            </div>
+
+            <div>
+                <p>&copy; 2023 Major Project</p>
+            </div>
+        </footer>
+
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
